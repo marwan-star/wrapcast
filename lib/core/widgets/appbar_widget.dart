@@ -9,7 +9,10 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      //leading: CircleAvatar(child: SvgPicture.asset(TAppAssets.userPFP)),
+      leading: Padding(
+        padding: const EdgeInsets.all(10),
+        child: CircleAvatar(backgroundImage: AssetImage(TAppAssets.user1)),
+      ),
       title: RichText(
         text: TextSpan(
           children: <TextSpan>[

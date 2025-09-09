@@ -99,7 +99,13 @@ class CustomCastContainer extends StatelessWidget {
                       ],
                     ),
                     Text(castText, style: TextStyle(fontSize: 14)),
-                    castImage.isNotEmpty ? Image.asset(castImage) : SizedBox(),
+                    castImage.isNotEmpty
+                        ? SizedBox(
+                            height: 200,
+                            width: double.infinity,
+                            child: Image.asset(castImage),
+                          )
+                        : SizedBox(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
