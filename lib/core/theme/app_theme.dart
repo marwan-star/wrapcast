@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wrapcast/core/theme/color_pallete.dart';
+import 'package:wrapcast/core/theme/custom_themes/appbar_theme.dart';
 import 'package:wrapcast/core/theme/custom_themes/text_theme.dart';
 
 class TAppTheme {
@@ -9,5 +10,7 @@ class TAppTheme {
     brightness: Brightness.dark,
     textTheme: TTextTheme.darkTextTheme,
     scaffoldBackgroundColor: ColorPallete.aBgBlackColor,
+    appBarTheme: TAppbarTheme.darkAppbarTheme,
+    colorScheme: ColorScheme.dark(outline: ColorPallete.aStrokeColor),
   );
 }
