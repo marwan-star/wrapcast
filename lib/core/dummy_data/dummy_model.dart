@@ -3,10 +3,10 @@ class Cast {
   final String userName;
   final String castedFrom;
   final String castImage;
-  final int casterAt; // minutes ago, or timestamp
+  final int casterAt;
   final String castText;
   final CastInfo castInfo;
-  final String? recastedBy; // optional field if recast
+  final String? recastedBy;
 
   Cast({
     required this.profileImage,
@@ -19,7 +19,6 @@ class Cast {
     this.recastedBy,
   });
 
-  // Factory to create from Map
   factory Cast.fromMap(Map<String, dynamic> map) {
     return Cast(
       profileImage: map['profile_image'],
@@ -33,7 +32,6 @@ class Cast {
     );
   }
 
-  // Convert back to Map (useful for dummy data)
   Map<String, dynamic> toMap() {
     return {
       'profile_image': profileImage,
