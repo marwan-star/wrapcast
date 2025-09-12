@@ -1,9 +1,12 @@
-import 'package:bottom_navbar_with_indicator/bottom_navbar_with_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wrapcast/core/constants/assets.dart';
 import 'package:wrapcast/core/theme/color_pallete.dart';
+import 'package:wrapcast/features/chats/presentation/chat_page.dart';
 import 'package:wrapcast/features/home/presentation/pages/home_page.dart';
+import 'package:wrapcast/features/notification/presentation/notification_page.dart';
+import 'package:wrapcast/features/search/presentation/pages/search_page.dart';
+import 'package:wrapcast/features/world/presentation/pages/world_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -14,19 +17,13 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int _selectedPage = 0;
-  final bool _isSelected = false;
   final List<Widget> _pages = [
     HomePage(),
-    Text('Search'),
-    Text('world'),
-    Text('notification'),
-    Text('chats'),
+    SearchPage(),
+    WorldPage(),
+    NotificationPage(),
+    ChatPage(),
   ];
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedPage = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +40,7 @@ class _MainPageState extends State<MainPage> {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(18.0),
+            padding: const EdgeInsets.all(20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -62,19 +59,23 @@ class _MainPageState extends State<MainPage> {
 
   Widget bottomNavItemOnTap(String icon, int index) {
     final isSelected = _selectedPage == index;
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          _selectedPage = index;
-        });
-      },
-      child: SvgPicture.asset(
-        icon,
-        width: 20,
-        height: 20,
-        colorFilter: ColorFilter.mode(
-          isSelected ? ColorPallete.aButtonColor : ColorPallete.aColorWhite_25,
-          BlendMode.srcIn,
+    return Expanded(
+      child: GestureDetector(
+        onTap: () {
+          setState(() {
+            _selectedPage = index;
+          });
+        },
+        child: SvgPicture.asset(
+          icon,
+          width: 20,
+          height: 20,
+          colorFilter: ColorFilter.mode(
+            isSelected
+                ? ColorPallete.aButtonColor
+                : ColorPallete.aColorWhite_25,
+            BlendMode.srcIn,
+          ),
         ),
       ),
     );
